@@ -1,0 +1,727 @@
+/* index.css — the whole look of FL Platform in one file.
+   Minimal and grayscale. Colours, sizes and spacing live in the variables below. */
+
+:root {
+  --fl-bg: #f7f7f7;
+  --fl-card-bg: #ffffff;
+  --fl-border: #d9d9d9;
+  --fl-row-line: #e6e6e6;
+  --fl-radius: 6px;
+  --fl-card-pad: 24px;
+
+  --fl-text: #222222;
+  --fl-text-secondary: #555555; /* never lighter than this */
+  --fl-heading: #111111;
+
+  --fl-primary: #111111;
+  --fl-primary-text: #ffffff;
+  --fl-highlight: #efefef;
+  --fl-track: #ececec;
+  --fl-bar-muted: #888888;
+  --fl-dashed: #999999;
+
+  --fl-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fl-max-width: 1100px;
+  --fl-side-pad: 32px;
+  --fl-tap: 44px; /* smallest height for anything you can click */
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: var(--fl-bg);
+  color: var(--fl-text);
+  font-family: var(--fl-font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--fl-heading);
+  margin: 0;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fl-primary);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Layout ---------- */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--fl-max-width) + 2 * var(--fl-side-pad));
+  margin: 0 auto;
+  padding: 0 var(--fl-side-pad);
+}
+
+.page {
+  padding-top: 56px;
+  padding-bottom: 64px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background: var(--fl-card-bg);
+  border-bottom: 1px solid var(--fl-border);
+}
+
+.navbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 24px;
+  min-height: 60px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--fl-tap);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--fl-heading);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--fl-tap);
+  color: var(--fl-text);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-top: 2px;
+}
+
+.nav-link:hover {
+  color: var(--fl-heading);
+}
+
+.nav-link.is-active {
+  color: var(--fl-heading);
+  border-bottom-color: var(--fl-primary);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--fl-card-bg);
+  border-top: 1px solid var(--fl-border);
+  padding: 24px 0;
+  font-size: 14px;
+  color: var(--fl-text-secondary);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 32px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--fl-tap);
+  padding: 0 22px;
+  border-radius: var(--fl-radius);
+  border: 1px solid var(--fl-primary);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--fl-primary);
+  color: var(--fl-primary-text);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #333333;
+}
+
+.btn-secondary {
+  background: var(--fl-card-bg);
+  color: var(--fl-heading);
+}
+
+.btn-secondary:hover {
+  background: var(--fl-highlight);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* ---------- Text ---------- */
+.hero-title {
+  font-size: clamp(30px, 5vw, 40px);
+  font-weight: 700;
+  max-width: 640px;
+}
+
+.page-title {
+  font-size: clamp(28px, 4vw, 34px);
+  font-weight: 700;
+}
+
+.lead {
+  margin-top: 16px;
+  font-size: 18px;
+  color: var(--fl-text-secondary);
+  max-width: 680px;
+}
+
+.page-title + .lead {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.section {
+  margin-top: 64px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.prose {
+  max-width: 740px;
+  color: var(--fl-text);
+  line-height: 1.7;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.sub-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+}
+
+.note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--fl-text-secondary);
+}
+
+.hint {
+  color: var(--fl-text-secondary);
+  padding: 24px 0;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fl-text-secondary);
+}
+
+.big-name {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--fl-heading);
+  line-height: 1.15;
+  margin-top: 4px;
+}
+
+.reason {
+  margin-top: 8px;
+}
+
+.runner-up,
+.confidence {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--fl-text-secondary);
+}
+
+.confidence {
+  font-size: 15px;
+}
+
+.mock-note {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: var(--fl-text-secondary);
+  border: 1px dashed var(--fl-dashed);
+  border-radius: 4px;
+}
+
+.missing-note {
+  margin-top: 16px;
+  color: var(--fl-text-secondary);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--fl-card-bg);
+  border: 1px solid var(--fl-border);
+  border-radius: var(--fl-radius);
+  padding: var(--fl-card-pad);
+}
+
+.tile-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.stat-tile {
+  flex: 1 1 200px;
+  padding: 20px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--fl-heading);
+  line-height: 1.2;
+}
+
+.stat-label {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--fl-text-secondary);
+}
+
+.strategy-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.strategy-card {
+  flex: 1 1 300px;
+  padding: 20px;
+}
+
+.strategy-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.strategy-card p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--fl-text-secondary);
+}
+
+/* ---------- Forms ---------- */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend,
+.field-label {
+  display: block;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fl-heading);
+  margin-bottom: 4px;
+}
+
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+}
+
+.option-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--fl-tap);
+  cursor: pointer;
+}
+
+.option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--fl-primary);
+  cursor: pointer;
+}
+
+select {
+  min-height: var(--fl-tap);
+  min-width: 200px;
+  padding: 0 12px;
+  font: inherit;
+  color: var(--fl-text);
+  background: var(--fl-card-bg);
+  border: 1px solid #888888;
+  border-radius: var(--fl-radius);
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ---------- Two-column pages ---------- */
+.two-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.two-col > .form-card,
+.two-col > .upload-card {
+  flex: 1 1 360px;
+}
+
+.two-col > .result-card {
+  flex: 1.15 1 420px;
+  min-width: 0;
+}
+
+/* ---------- Charts ---------- */
+.results-body {
+  margin-top: 28px;
+}
+
+.chart-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.chart-card {
+  flex: 1 1 460px;
+  min-width: 0;
+}
+
+.chart-box {
+  width: 100%;
+  height: 300px;
+}
+
+.line-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  font-size: 13px;
+  color: var(--fl-text-secondary);
+}
+
+.line-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- Tables ---------- */
+.table-card {
+  margin-top: 28px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--fl-row-line);
+}
+
+.data-table thead th {
+  font-weight: 600;
+  color: var(--fl-heading);
+  border-bottom: 2px solid var(--fl-primary);
+}
+
+.data-table tbody th {
+  font-weight: 400;
+}
+
+.data-table.compact {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.data-table.compact th,
+.data-table.compact td {
+  padding: 10px;
+}
+
+.row-highlight {
+  background: var(--fl-highlight);
+}
+
+.data-table .row-highlight th {
+  font-weight: 700;
+}
+
+/* ---------- Status messages ---------- */
+.status {
+  padding: 24px;
+  text-align: center;
+  color: var(--fl-text-secondary);
+  background: var(--fl-card-bg);
+  border: 1px solid var(--fl-border);
+  border-radius: var(--fl-radius);
+}
+
+.status-error {
+  text-align: left;
+  color: var(--fl-text);
+  border-color: var(--fl-primary);
+  border-left-width: 4px;
+}
+
+.card .status {
+  border-style: dashed;
+}
+
+.card .status-error {
+  border-style: solid;
+  margin-top: 16px;
+  padding: 12px 16px;
+}
+
+/* ---------- Upload ---------- */
+.upload-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dropzone {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 36px 24px;
+  text-align: center;
+  border: 2px dashed var(--fl-dashed);
+  border-radius: var(--fl-radius);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.dropzone.is-dragging {
+  background: var(--fl-highlight);
+  border-color: var(--fl-primary);
+}
+
+.upload-icon {
+  color: var(--fl-text);
+}
+
+.dropzone-hint {
+  font-size: 13px;
+  color: var(--fl-text-secondary);
+}
+
+.visually-hidden:focus-visible + label {
+  outline: 2px solid var(--fl-primary);
+  outline-offset: 2px;
+}
+
+.upload-card .field-label {
+  margin-top: 28px;
+  font-size: 14px;
+}
+
+.preview-box {
+  width: 192px;
+  height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--fl-track);
+  border: 1px solid var(--fl-border);
+  border-radius: var(--fl-radius);
+  color: var(--fl-text-secondary);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Probability bars ---------- */
+.prob-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.prob-row {
+  display: grid;
+  grid-template-columns: 96px 1fr 56px;
+  align-items: center;
+  gap: 12px;
+  min-height: 25px;
+  font-size: 14px;
+}
+
+.prob-track {
+  height: 14px;
+  background: var(--fl-track);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.prob-fill {
+  display: block;
+  height: 100%;
+  background: var(--fl-bar-muted);
+  border-radius: 3px;
+}
+
+.prob-value {
+  text-align: right;
+  color: var(--fl-text-secondary);
+}
+
+.prob-row.is-top .prob-name,
+.prob-row.is-top .prob-value {
+  font-weight: 700;
+  color: var(--fl-heading);
+}
+
+.prob-row.is-top .prob-fill {
+  background: var(--fl-primary);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+  :root {
+    --fl-side-pad: 16px;
+    --fl-card-pad: 20px;
+  }
+
+  .page {
+    padding-top: 36px;
+  }
+
+  .nav-links {
+    gap: 0 16px;
+  }
+
+  .big-name {
+    font-size: 32px;
+  }
+
+  .prob-row {
+    grid-template-columns: 84px 1fr 52px;
+    gap: 8px;
+  }
+}
