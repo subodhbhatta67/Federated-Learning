@@ -1,0 +1,16 @@
+{
+  "strategy": "FedAvg",
+  "alpha": 0.5,
+  "rounds": [
+    {"round": 1,  "accuracy": 12.7,  "loss": 2.35, "jfi": 0.755},
+    {"round": 2,  "accuracy": 10.5,  "loss": 2.31, "jfi": 0.625},
+    {"round": 3,  "accuracy": 15.7,  "loss": 2.22, "jfi": 0.855},
+    {"round": 4,  "accuracy": 20.1,  "loss": 2.18, "jfi": 0.885},
+    {"round": 5,  "accuracy": 20.2,  "loss": 2.13, "jfi": 0.84},
+    {"round": 6,  "accuracy": 20.7,  "loss": 2.10, "jfi": 0.832},
+    {"round": 7,  "accuracy": 21.4,  "loss": 2.11, "jfi": 0.913},
+    {"round": 8,  "accuracy": 19.9,  "loss": 2.16, "jfi": 0.823},
+    {"round": 9,  "accuracy": 15.8,  "loss": 2.46, "jfi": 0.835},
+    {"round": 10, "accuracy": 21.18, "loss": 2.13, "jfi": 0.918}
+  ]
+}
