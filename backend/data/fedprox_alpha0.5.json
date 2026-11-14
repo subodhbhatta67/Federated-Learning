@@ -1,0 +1,16 @@
+{
+  "strategy": "FedProx",
+  "alpha": 0.5,
+  "rounds": [
+    {"round": 1,  "accuracy": 20.9,  "loss": 2.08, "jfi": 0.863},
+    {"round": 2,  "accuracy": 23.1,  "loss": 2.03, "jfi": 0.952},
+    {"round": 3,  "accuracy": 23.2,  "loss": 2.02, "jfi": 0.926},
+    {"round": 4,  "accuracy": 22.9,  "loss": 2.05, "jfi": 0.954},
+    {"round": 5,  "accuracy": 22.9,  "loss": 1.99, "jfi": 0.918},
+    {"round": 6,  "accuracy": 25.0,  "loss": 1.98, "jfi": 0.967},
+    {"round": 7,  "accuracy": 23.8,  "loss": 1.97, "jfi": 0.957},
+    {"round": 8,  "accuracy": 24.4,  "loss": 1.95, "jfi": 0.840},
+    {"round": 9,  "accuracy": 26.0,  "loss": 1.91, "jfi": 0.987},
+    {"round": 10, "accuracy": 27.12, "loss": 1.88, "jfi": 0.894}
+  ]
+}
